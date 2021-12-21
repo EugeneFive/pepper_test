@@ -1,0 +1,102 @@
+body {
+  padding: 16px;
+  font-size: 14px;
+  font-family: 'Arial', sans-serif;
+}
+
+*, *:before, *:after {
+  margin: 0;
+  box-sizing: content-box;
+}
+
+.container {
+  position: relative;
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 16px 0;
+}
+
+.tabs {
+  background-color: #d0d0d0;
+  box-shadow: 0px 0px 2px 0px #000;
+}
+
+.tab {
+  display: block;
+}
+
+.tab input[type=radio] {
+  position: absolute;
+  width: 0;
+  height: 0;
+  visibility: hidden;
+  opacity: 0;
+  z-index: -1;
+}
+
+.tab-header {
+  padding: 8px 16px;
+  background-color: #aaaaaa;
+  border-bottom: 1px solid #b3b3b3;
+  cursor: pointer;
+}
+
+.tab input[type=radio]:checked ~ .tab-header {
+  background-color: transparent;
+}
+
+.tab-header__title {
+  font-size: 1.2em;
+  line-height: 1.4;
+}
+
+.tab-content {
+  display: none;
+  padding: 16px;
+}
+
+.tab input[type=radio]:checked ~ .tab-content {
+  display: block;
+}
+
+.tab-content__title {
+  margin-bottom: 8px;
+  font-size: 1.4em;
+}
+
+.tab-content__info {
+  line-height: 1.6;
+}
+
+@media (min-width: 460px) {
+  .tabs {
+    display: flex;
+    box-shadow: none;
+    background-color: transparent;
+    overflow: auto;
+  }
+
+  .tabs input[type=radio]:checked ~ .tab-header {
+    background-color: #d0d0d0;
+    border-bottom-color: transparent;
+  }
+
+  .tabs input[type=radio]:checked ~ .tab-content {
+    position: absolute;
+    left: 0;
+    right: 0;
+    display: block;
+    background-color: #d0d0d0;
+    top: 74px; /*remove/correct/ if this property, if on pc tabs fit in view*/
+  }
+
+  /* .tab {
+    float: left;
+  } */
+
+  .tab-header {
+    border-radius: 5px 5px 0 0;
+    min-width: 60px;
+  }
+}
